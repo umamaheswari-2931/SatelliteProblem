@@ -1,0 +1,51 @@
+class SatelliteState {
+    private String orientation;
+    private String solarPanelStatus;
+    private int dataCollected;
+
+    public SatelliteState() {
+        this.orientation = "North";
+        this.solarPanelStatus = "Inactive";
+        this.dataCollected = 0;
+    }
+
+    public String getOrientation() {
+        return orientation;
+    }
+
+    public String getSolarPanelStatus() {
+        return solarPanelStatus;
+    }
+
+    public int getDataCollected() {
+        return dataCollected;
+    }
+
+    public void rotate(String direction) {
+        if ("North".equals(direction) || "South".equals(direction) || "East".equals(direction) || "West".equals(direction)) {
+            this.orientation = direction;
+            System.out.println("Satellite orientation set to " + direction);
+        } else {
+            System.out.println("Invalid direction. Satellite orientation remains unchanged.");
+        }
+    }
+
+    public void activatePanels() {
+        this.solarPanelStatus = "Active";
+    }
+
+    public void deactivatePanels() {
+        this.solarPanelStatus = "Inactive";
+    }
+
+    public void collectData() {
+        if ("Active".equals(this.solarPanelStatus)) {
+            this.dataCollected += 10;
+
+        }
+        else{
+            this.dataCollected += 0;
+        }
+    }
+}
+
