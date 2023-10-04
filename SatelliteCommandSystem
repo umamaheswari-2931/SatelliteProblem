@@ -1,0 +1,43 @@
+class SatelliteController {
+    private SatelliteState state;
+
+    public SatelliteController() {
+        this.state = new SatelliteState();
+    }
+
+    public void rotate(String direction) {
+        state.rotate(direction);
+    }
+
+    public void activatePanels() {
+        state.activatePanels();
+    }
+
+    public void deactivatePanels() {
+        state.deactivatePanels();
+    }
+
+    public void collectData() {
+        state.collectData();
+    }
+
+    public void printSatelliteState() {
+        System.out.println("Satellite State:");
+        System.out.println("Orientation: " + state.getOrientation());
+        System.out.println("Solar Panel Status: "+state.getSolarPanelStatus());
+        System.out.println("Data Collected: " + state.getDataCollected());
+    }
+}
+
+public class SatelliteCommandSystem {
+    public static void main(String[] args) {
+        SatelliteController controller = new SatelliteController();
+
+        controller.rotate("South");
+        controller.activatePanels();
+        controller.collectData();
+
+        controller.printSatelliteState();
+    }
+}
+
